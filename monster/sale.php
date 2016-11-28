@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 	<title>puzzdra</title>
-	<link rel="stylesheet" href="/puzzdra/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 
@@ -39,7 +39,6 @@
 			
 			echo'<br>';
 		}
-
 		?>
 		<input Type="submit" value="OK">
 </form>

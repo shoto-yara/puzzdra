@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 	<title>puzzdra</title>
-	<link rel="stylesheet" href="/puzzdra/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 
@@ -40,7 +40,7 @@
 <main>
 
 <?php	foreach($stmt as $row){
-	echo $row['id']. ':' . $row['mon'].$row['level'];
+	echo  $row['mon'].'&nbsp;&nbsp;&nbsp'.$row['level'].'Lv';
 	echo'<br>';
 }
 
