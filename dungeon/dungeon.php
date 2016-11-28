@@ -12,7 +12,6 @@
 		print '<a href="index.phpl">ログイン画面へ</a>';
 		exit();
 	}
-	$user_id=$_SESSION['user_id'];
 
 	$id_d=$_GET["id"];
 	$category_d=$_GET["category"];
