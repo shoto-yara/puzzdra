@@ -1,9 +1,9 @@
 <?php
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
+	
 	/******** 変数代入 ********/
 	$id_d=isset($_POST["id"])? htmlspecialchars($_POST["id"]):null;
-
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php');
-	
 		if($id_d<>"")
 		{
 			if(preg_match("/^[0-9]+$/", $id_d)==false){

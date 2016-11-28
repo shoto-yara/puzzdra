@@ -1,4 +1,7 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); ?>
+<?php
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
+?>
 		
 	<main>
 		ダンジョン<br><br>

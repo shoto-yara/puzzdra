@@ -1,9 +1,10 @@
 <?php
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
+
 	/******** 変数代入 ********/
 	$id_d=isset($_GET["id"])? htmlspecialchars($_GET["id"]):null;
 	$mess_d=isset($_POST["message"])? htmlspecialchars($_POST["message"]):null;
-	
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php');
 ?>
 	
 		<main>
@@ -23,7 +24,7 @@
 			{
 				$rec=mysql_query("select * from users where id=$id_d") or die(mysql_error());
 				$friend=mysql_fetch_array($rec);
-				?>
+			?>
 				<form method="post" action="send_mail.php">
 					宛先 ： <?= $friend['name']; ?><br>
 					<textarea name="message" rows="9" cols="30">

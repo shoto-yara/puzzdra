@@ -7,7 +7,8 @@
 		print '<a href="normal_list.php">ここをクリックしてノーマルダンジョンリストに戻ってください</a><br>';
 	}
 	
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
 	?>
 	
 	<main>

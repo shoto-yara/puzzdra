@@ -1,18 +1,6 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/data/db_info.php');
 	
-	$s=mysql_connect($SERV,$USER,$PASS) or die("失敗しました");
-	mysql_select_db($DBNM);
-	
-	session_start();
-	session_regenerate_id(true);
-	if(isset($_SESSION['login'])==false)
-	{
-		print 'ログインされていません。<br>';
-		print '<a href="index.phpl">ログイン画面へ</a>';
-		exit();
-	}
-
 	$id_d=$_GET["id"];
 	$category_d=$_GET["category"];
 	$name_d=$_GET["name"];

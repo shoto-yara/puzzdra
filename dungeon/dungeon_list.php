@@ -1,8 +1,8 @@
 <?php
-	$category_d=$_GET["category"];
-
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
-	?>
+	$category_d=$_GET["category"];
+?>
 		
 	<main>
 		<?php
