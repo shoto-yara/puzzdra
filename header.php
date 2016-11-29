@@ -9,19 +9,19 @@
 
 <header>
 	NAME
-	<?= $user['name'];?>&nbsp;&nbsp;&nbsp;
+	<?= $_SESSION['user_name'];?>&nbsp;&nbsp;&nbsp;
 	RANK
-	<?= $user['rank'];?>&nbsp;&nbsp;&nbsp;
+	<?= $_SESSION['user_rank'];?>&nbsp;&nbsp;&nbsp;
 	<hr size='2' color='red' >
 	EXP
-	<?= $user['exp'];?>&nbsp;&nbsp;&nbsp;
+	<?= $_SESSION['user_exp'];?>&nbsp;&nbsp;&nbsp;
 	STONE
-	<?= $user['stone'];?>&nbsp;&nbsp;&nbsp;
+	<?= $_SESSION['user_stone'];?>&nbsp;&nbsp;&nbsp;
 	<hr size='2' color='blue' >
 	STAMINA
-	<?= $user['stamina'];?>&nbsp;&nbsp;&nbsp;
+	<?= $_SESSION['user_stamina'];?>&nbsp;&nbsp;&nbsp;
 	COIN
-	<?= $user['coin'];?>&nbsp;&nbsp;&nbsp;
+	<?= $_SESSION['user_coin'];?>&nbsp;&nbsp;&nbsp;
 	<hr size='2' color='yellow' >
 </header>
 

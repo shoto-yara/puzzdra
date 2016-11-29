@@ -7,17 +7,27 @@
 		print '<a href="index.php">ログイン画面へ</a>';
 		exit();
 	}
-	$user_id=$_SESSION['user_id'];
+	$user['id']=$_SESSION['user_id'];
 	
-	$SERV="localhost";
+	/*$SERV="localhost";
 	$USER="root";
 	$PASS="";
 	$DBNM="puzzdra";
 
 	/******** データベースへ接続、データベース選択 ********/
-	$dbh=mysql_connect($SERV,$USER,$PASS) or die("失敗しました");
+	/*$dbh=mysql_connect($SERV,$USER,$PASS) or die("失敗しました");
 	mysql_select_db($DBNM);
 	
 	$rec=mysql_query("SELECT * FROM users WHERE id=$user_id") or die(mysql_error());
 	$user=mysql_fetch_array($rec);
+	
+	*/
+	
+	$dsn = 'mysql:dbname=puzzdra;host=localhost';
+	$user = 'root';
+	$password = '';
+	$dbh = new PDO($dsn,$user,$password);
+	$dbh ->query('SET NAMES utf8');
+	
+	
 ?>

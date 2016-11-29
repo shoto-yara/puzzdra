@@ -1,13 +1,14 @@
 <?php
-	/******** データベース情報の読み込み ********/
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/data/db_info.php');
-
-	/******** データベースへ接続、データベース選択 ********/
-	$s=mysql_connect($SERV,$USER,$PASS) or die("失敗しました");
-	mysql_select_db($DBNM);
+	$dsn = 'mysql:dbname=puzzdra;host=localhost';
+	$user = 'root';
+	$password = '';
+	$dbh = new PDO($dsn,$user,$password);
+	$dbh ->query('SET NAMES utf8');
 	
-	$rec=mysql_query("SELECT * FROM users where id=1") or die(mysql_error());
-	$user=mysql_fetch_array($rec);
+	$sql='SELECT * FROM users where id=1';
+	$stmt = $dbh->prepare($sql);
+	$stmt->execute();
+	$user = $stmt->fetch(PDO::FETCH_ASSOC);
 	
 	session_start();
 			$_SESSION['login']=1;
@@ -20,6 +21,7 @@
 			$_SESSION['user_stone']=$user['stone'];
 	
 	$dbh = null;
+	print_r($_SESSION);
 ?>
 
 <!DOCTYPE HTML>

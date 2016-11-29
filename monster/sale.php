@@ -10,7 +10,6 @@
 
 	$sql = 'SELECT user_monsters.id,name FROM  user_monsters join monsters on monsters.id = user_monsters.monsters_id WHERE user_id = 1 ';
 	$stmt = $dbh->prepare($sql);
-
 	$stmt->execute();
 
 //	$monsters = $stmt->fetch(PDO::FETCH_ASSOC);
