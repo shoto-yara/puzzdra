@@ -8,9 +8,10 @@
 	$stamina_d=isset($_GET["stamina"])?htmlspecialchars($_GET["stamina"]):null;
 	$battle_count=isset($_GET["battle_count"])?htmlspecialchars($_GET["battle_count"]):null;
 	
-	
-	$battle_num=mysql_query("select battle from dungeon_data where dungeon_id=$id_d and category=$category_d and name='$name_d'") or die(mysql_error());
-	
+	$sql="select battle from dungeon_data where dungeon_id=$id_d and category=$category_d and name='$name_d'";
+	$stmt = $dbh->prepare($sql);
+	$stmt->execute();
+	$battle_num = $stmt[battle];
 	if(preg_match("/[^0-9]/",$id_d)){
 		print '不正な値が入力されています<br>';
 		print '<a href="normal_list.php">ここをクリックしてノーマルダンジョンリストに戻ってください</a><br>';
@@ -29,11 +30,15 @@
 <?php
 	if($stamina_d<>"")
 	{
-		 mysql_query("UPDATE users SET stamina = stamina-$stamina_d WHERE id=$id_d") or die(mysql_error());
+		
+		$sql="UPDATE users SET stamina = stamina-$stamina_d WHERE id=$id_d";
+		$stmt = $dbh->prepare($sql);
+		$stmt->execute();
 		$battle_count=0;
 	}
 	
 	$battle_count=$battle_count+1;
+	
 	
 	if($battle_num==$battle_count)
 	{
