@@ -12,6 +12,7 @@
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 	$battle_num = $stmt[battle];
+	
 	if(preg_match("/[^0-9]/",$id_d)){
 		print '不正な値が入力されています<br>';
 		print '<a href="normal_list.php">ここをクリックしてノーマルダンジョンリストに戻ってください</a><br>';
@@ -39,8 +40,7 @@
 	
 	$battle_count=$battle_count+1;
 	
-	
-	if($battle_num==$battle_count)
+	if($battle_num<$battle_count)
 	{
 		echo '<a href="dungeon_rank.php">戻る</a>';
 	} 
