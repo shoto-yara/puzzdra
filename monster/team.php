@@ -1,23 +1,13 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="UTF-8">
-	<title>puzzdra</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-
 <?php
-	
-	require_once("../header.php");
-	
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
 
-	
-	/*$hako2=$_post['hako2'];
+	/*$hako1=$_post['hako1'];
+	$hako2=$_post['hako2'];
 	$hako3=$_post['hako3'];
 	$hako4=$_post['hako4'];
-	$hako5=$_post['hako5'];
-	*/
+	$hako5=$_post['hako5'];*/
+	
 	
 	
 	$dsn = 'mysql:dbname=puzzdra;host=localhost';
@@ -38,19 +28,18 @@
 ?>
 <main>
 チーム<br><br>
-
+		<form action="change.php" method="get">
 <?php 
-	if(isset($_POST['hako1'])==false){
-	    echo '<a href="change.php">選択</a>&nbsp;&nbsp';
-	}else{
-		$hako1=$_post['hako1'];
+	for($i = 0; $i < 5; ++$i ){
+		if(isset($_POST["hako".$i])==false){
+			echo '<a href="change.php?hako='.$i.'">選択</a>&nbsp;&nbsp';
+		}else{
+			echo "print($hako1)";
+		}
 	}
-	echo '<a href="change.php">選択</a>&nbsp;&nbsp';
-	echo '<a href="change.php">選択</a>&nbsp;&nbsp';
-	echo '<a href="change.php">選択</a>&nbsp;&nbsp';
-	echo '<a href="change.php">選択</a>&nbsp;&nbsp';
+	print($hako1);
 ?>
-
+	</form>
 </main>
 <?php require_once( "../footer.php"); ?>
 </body>

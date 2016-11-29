@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- ホスト: localhost
--- 生成時間: 2016 年 11 月 29 日 04:29
+-- 生成時間: 2016 年 11 月 29 日 04:33
 -- サーバのバージョン: 5.5.8
 -- PHP のバージョン: 5.3.5
 
@@ -22,18 +22,25 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `mail`
+-- テーブルの構造 `team`
 --
 
-CREATE TABLE IF NOT EXISTS `mail` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `team` (
+  `team_id` int(10) NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_monster_id` int(10) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `friend_id` int(11) NOT NULL,
-  `message` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`team_id`,`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- テーブルのデータをダンプしています `mail`
+-- テーブルのデータをダンプしています `team`
 --
 
+INSERT INTO `team` (`team_id`, `id`, `user_monster_id`, `user_id`) VALUES
+(1, 1, 22, 1),
+(1, 2, 26, 1),
+(1, 3, 30, 1),
+(1, 4, 31, 1),
+(1, 5, 1, 1);
