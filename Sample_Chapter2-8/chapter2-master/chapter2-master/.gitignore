@@ -1,9 +1,0 @@
-/vendor
-/node_modules
-Homestead.yaml
-Homestead.json
-.env
-/nbproject
-.directory
-.php_cs
-/storage/database.sqlite
