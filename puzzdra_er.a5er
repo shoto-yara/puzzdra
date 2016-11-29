@@ -1,0 +1,256 @@
+﻿# A5:ER FORMAT:10
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+
+[Manager]
+ProjectName=
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Relation]
+Entity1=team
+Entity2=user_monsters
+RelationType1=1
+RelationType2=3
+Fields1=team_id
+Fields2=team_id_2
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,6179,4492,4429,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=618
+Bar2=449
+Bar3=443
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=team
+Entity2=user_monsters
+RelationType1=1
+RelationType2=3
+Fields1=team_id
+Fields2=team_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3585,7011,1127,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=358
+Bar2=701
+Bar3=113
+TermPos1=R
+TermPos2=R
+
+[Line]
+Page=Main
+Left=455
+Top=149
+Width=0
+Height=0
+
+[Line]
+Page=Main
+Left=680
+Top=403
+Width=0
+Height=0
+
+[Relation]
+Entity1=user_monsters
+Entity2=users
+RelationType1=1
+RelationType2=3
+Fields1=id,team_id,id_2
+Fields2=id,,
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4898,7988,1065,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=490
+Bar2=799
+Bar3=106
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=user_monsters
+Entity2=monsters
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,5956,7017,1087,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=596
+Bar2=702
+Bar3=109
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=dungeon_data
+LName=dungeon_data
+Comment=
+TableOption=
+Page=MAIN
+Left=500
+Top=350
+Field="id","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="dungeon_id","dungeon_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="category","category","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="name","name","varchar(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="stamina","stamina","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="battle","battle","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",500,350
+
+[Entity]
+PName=dungeon_list
+LName=dungeon_list
+Comment=
+TableOption=
+Page=MAIN
+Left=100
+Top=400
+Field="id","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="dungeon_id","dungeon_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="category","category","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="name","name","varchar(10)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",100,400
+
+[Entity]
+PName=friend_list
+LName=friend_list
+Comment=
+TableOption=
+Page=MAIN
+Left=300
+Top=450
+Field="user_id","user_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="friend_id","friend_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",300,450
+
+[Entity]
+PName=monsters
+LName=monsters
+Comment=
+TableOption=
+Page=MAIN
+Left=0
+Top=50
+Field="id","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="name","name","varchar(15)","NOT NULL",,"","",$FFFFFFFF,""
+Field="Type","Type","varchar(10)","NOT NULL",,"","",$FFFFFFFF,""
+Field="money","money","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="point","point","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",0,50,132,151
+
+[Entity]
+PName=team
+LName=team
+Comment=
+TableOption=
+Page=MAIN
+Left=0
+Top=250
+Field="team_id","team_id","int(10)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="user_monster_id","user_monster_id","int(10)","NOT NULL",,"","",$FFFFFFFF,""
+Field="user_id","user_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Index=id=2,id
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",0,250,166,102
+
+[Entity]
+PName=user_monsters
+LName=user_monsters
+Comment=
+TableOption=
+Page=MAIN
+Left=250
+Top=150
+Field="id","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="team_id","team_id","int(10)","NOT NULL",1,"","",$FFFFFFFF,""
+Field="user_id","user_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="monsters_id","monsters_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="level","level","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="team_id_2","team_id_2","int(10)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",250,150
+
+[Entity]
+PName=users
+LName=users
+Comment=
+TableOption=
+Page=MAIN
+Left=500
+Top=100
+Field="id","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="name","name","varchar(10)","NOT NULL",,"","",$FFFFFFFF,""
+Field="exp","exp","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="stamina","stamina","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="coin","coin","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="monsters_point","monsters_point","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="rank","rank","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="stone","stone","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",500,100

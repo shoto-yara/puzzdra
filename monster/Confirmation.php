@@ -53,9 +53,8 @@
 	FROM  user_monsters join monsters on user_monsters.monsters_id = monsters.id 
 	WHERE user_id = 1  and user_monsters.id in (" . implode(',', $sale) . ")";
 	$stmt = $dbh->prepare($sql);
-	
-	//print($sql);
 	$stmt->execute();
+	print($sql);
 //	$monsters = $stmt->fetch(PDO::FETCH_ASSOC);
 
 

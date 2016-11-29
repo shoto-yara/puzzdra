@@ -26,7 +26,10 @@
 	$dbh = new PDO($dsn,$user,$password);
 	$dbh ->query('SET NAMES utf8');
 
-	$sql = 'select ';
+	$sql = 'select monsters.name,monsters.Type,user_monsters.level
+				from team 
+				join user_monsters on team.user_monster_id=user_monsters.id
+				join monsters on user_monsters.monsters_id=monsters.id';
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 
