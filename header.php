@@ -1,3 +1,11 @@
+<?php
+	$sql="SELECT * FROM users where id=$user_id";
+	$stmt = $dbh->prepare($sql);
+	$stmt->execute();
+	
+	$users_data = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>
@@ -9,19 +17,19 @@
 
 <header>
 	NAME
-	<?= $_SESSION['user_name'];?>&nbsp;&nbsp;&nbsp;
+	<?= $users_data['name'];?>&nbsp;&nbsp;&nbsp;
 	RANK
-	<?= $_SESSION['user_rank'];?>&nbsp;&nbsp;&nbsp;
+	<?= $users_data['rank'];?>&nbsp;&nbsp;&nbsp;
 	<hr size='2' color='red' >
 	EXP
-	<?= $_SESSION['user_exp'];?>&nbsp;&nbsp;&nbsp;
+	<?= $users_data['exp'];?>&nbsp;&nbsp;&nbsp;
 	STONE
-	<?= $_SESSION['user_stone'];?>&nbsp;&nbsp;&nbsp;
+	<?= $users_data['stone'];?>&nbsp;&nbsp;&nbsp;
 	<hr size='2' color='blue' >
 	STAMINA
-	<?= $_SESSION['user_stamina'];?>&nbsp;&nbsp;&nbsp;
+	<?= $users_data['stamina'];?>&nbsp;&nbsp;&nbsp;
 	COIN
-	<?= $_SESSION['user_coin'];?>&nbsp;&nbsp;&nbsp;
+	<?= $users_data['coin'];?>&nbsp;&nbsp;&nbsp;
 	<hr size='2' color='yellow' >
 </header>
 

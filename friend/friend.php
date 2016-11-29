@@ -13,6 +13,7 @@
 		
 		foreach($stmt as $friend_status){
 				echo $friend_status['id'].'  : '.$friend_status['name'].'<br><br>';
+				echo '<a href="friend_list.php">戻る</a><br><br>';
 		}
 		?>
 		</main>
