@@ -21,7 +21,6 @@
 			$_SESSION['user_stone']=$user['stone'];
 	
 	$dbh = null;
-	print_r($_SESSION);
 ?>
 
 <!DOCTYPE HTML>
