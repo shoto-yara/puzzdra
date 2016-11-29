@@ -11,7 +11,8 @@
 	$sql="select battle from dungeon_data where dungeon_id=$id_d and category=$category_d and name='$name_d'";
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
-	$battle_num = $stmt[battle];
+	$rec = $stmt->fetch(PDO::FETCH_ASSOC);
+	$battle_num = $rec['battle'];
 	
 	if(preg_match("/[^0-9]/",$id_d)){
 		print '不正な値が入力されています<br>';

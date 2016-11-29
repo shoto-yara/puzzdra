@@ -22,8 +22,10 @@
 			}
 			else if($id_d<>"")
 			{
-				$rec=mysql_query("select * from users where id=$id_d") or die(mysql_error());
-				$friend=mysql_fetch_array($rec);
+				$sql="select * from users where id=$id_d";
+				$stmt = $dbh->prepare($sql);
+				$stmt->execute();
+				$friend = $stmt->fetch(PDO::FETCH_ASSOC);
 			?>
 				<form method="post" action="send_mail.php">
 					宛先 ： <?= $friend['name']; ?><br>

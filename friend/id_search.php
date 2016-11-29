@@ -12,8 +12,11 @@
 			}
 			else
 			{
-			$rec=mysql_query("SELECT * FROM users WHERE id =$id_d") or die(mysql_error());
-			$friend_status=mysql_fetch_array($rec);
+			$sql="SELECT * FROM users WHERE id =$id_d";
+			$stmt = $dbh->prepare($sql);
+			$stmt->execute();
+			$friend_status = $stmt->fetch(PDO::FETCH_ASSOC);
+			
 			echo "{$friend_status['id']}  : {$friend_status['name']}<br>";
 			echo '<a href="friend_request.php">はい</a><a href="id_search.php">いいえ</a>';
 			}
