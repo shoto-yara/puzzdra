@@ -1,22 +1,8 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="UTF-8">
-	<title>puzzdra</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-
 <?php
 
-	require_once("../header.php");
-		
-	$dsn = 'mysql:dbname=puzzdra;host=localhost';
-	$user = 'root';
-	$password = '';
-	$dbh = new PDO($dsn,$user,$password);
-	$dbh ->query('SET NAMES utf8');
-
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
+	
 	$sql = 'SELECT monsters.id, name as mon, level FROM  user_monsters join monsters on monsters.id = user_monsters.monsters_id WHERE user_id = 1 ';
 	$stmt = $dbh->prepare($sql);
 
