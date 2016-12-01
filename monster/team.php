@@ -11,7 +11,7 @@
 		if($ban<>""){
 			$ban=$_POST["ban"];
 			$sent=$_POST['sent'];
-			$sql = "select monsters.name,monsters.Type,user_monsters.level
+			$sql = "select  monsters.name,monsters.Type,user_monsters.level
 			from  user_monsters join monsters on user_monsters.monsters_id=monsters.id
 			where user_monsters.id = $sent";
 				$stmt = $dbh->prepare($sql);
@@ -35,8 +35,14 @@
 			if(isset($_GET["hako$i"])==false){
 				echo '<a href="change.php?hako='.$i.'">選択</a>&nbsp;&nbsp';
 			}
+			echo $hako;
 		}else{
 			echo $mon['id']. ':' . $mon['name'];
+			$slot = "update slot set slot  = slot + $ban";
+			$cha = "update	team set user_monster_id = mon['name'] where team.slot = $ban;
+			$aaa = $dbh->prepare($slot);
+			$aaa.= $dbh->prepare($cha);
+			$aaa->execute();
 		}
 	}
 
