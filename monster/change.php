@@ -1,10 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
-	
-
-	$hako1=$_post['hako1'];
-
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
 	
 	$sql = 'SELECT user_monsters.id,name FROM  user_monsters join monsters on monsters.id = user_monsters.monsters_id WHERE user_id = 1 ';
 	$stmt = $dbh->prepare($sql);
