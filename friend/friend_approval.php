@@ -7,17 +7,17 @@
 		<?php 
 		$sql="
 					SELECT
-							mail.user_id,
-							mail.friend_id,
-							mail.message,
-							mail.friend_request
+							user_id,
+							friend_id,
+							message,
+							friend_request
 					FROM 
-							mail,
-							users
+							mail
 					WHERE
-							mail.user_id=$user_id
-							OR mail.friend_request=1
-							AND mail.user_id=$user_id
+							friend_id = $user_id
+							AND message != '%'
+							OR friend_request = 1
+							AND user_id = $user_id
 					";
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute();
