@@ -1,15 +1,8 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="UTF-8">
-	<title>puzzdra</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-
 <?php
 
-	require_once("../header.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
+
 	if(isset($_POST['sale'])==false){
 		echo '<main>';
 		print 'モンスターが指定されていません。<br/>';
@@ -23,14 +16,6 @@
 
 	//print_r ($sale);
 	
-	
-		
-	$dsn = 'mysql:dbname=puzzdra;host=localhost';
-	$user = 'root';
-	$password = '';
-	$dbh = new PDO($dsn,$user,$password);
-	$dbh ->query('SET NAMES utf8');
-
 	$sql = "select money from monsters join user_monsters on monsters_id = monsters.id where user_monsters.id in  (" . implode(',', $sale) . ")";
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
@@ -43,7 +28,7 @@
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 	
-	print ($sql);
+	//print ($sql);
 	$point = 0;
 	foreach ($stmt as $n){
 		$point += $n['point'];
@@ -54,7 +39,7 @@
 	WHERE user_id = 1  and user_monsters.id in (" . implode(',', $sale) . ")";
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
-	print($sql);
+	//print($sql);
 //	$monsters = $stmt->fetch(PDO::FETCH_ASSOC);
 
 

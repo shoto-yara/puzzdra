@@ -1,24 +1,9 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="UTF-8">
-	<title>puzzdra</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/puzzdra/data/db_info.php");
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/puzzdra/header.php'); 
 
-	
-		
-		
 	$mon=$_POST['mon'];
-	print_r ($mon);
-	$dsn = 'mysql:dbname=puzzdra;host=localhost';
-	$user = 'root';
-	$password = '';
-	$dbh = new PDO($dsn,$user,$password);
-	$dbh ->query('SET NAMES utf8');
+	//print_r ($mon);
 
 	$sql = "select money from monsters join user_monsters on monsters_id = monsters.id where user_monsters.id in  (" . implode(',', $mon) . ")";
 	$stmt = $dbh->prepare($sql);
@@ -33,7 +18,7 @@
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 	
-	print ($sql);
+	//print ($sql);
 	$point = 0;
 	foreach ($stmt as $n){
 		$point += $n['point'];
@@ -53,7 +38,7 @@
 	$sss->execute();
 	
 
-	require_once("../header.php");
+	
 	//mysql_query ("update users set coin = coin + $uru['money'] where id=1");
 //	$monsters = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
